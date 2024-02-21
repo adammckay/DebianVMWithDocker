@@ -50,7 +50,7 @@ Go to VirtualBox and click 'New' to create a new VM.  On the wizard screen, choo
 
 It is very important to uncheck the unattended install option.  If you don't, you will get many features that will overcomplicate your setup.
 
-All other defaults are fine at this point.  **You may find the 20GB drive space limiting so set tht to something you can handle.** You can start your VM.
+All other defaults are fine at this point.  **You may find the 20GB drive space limiting so set that to something you can handle.** You can start your VM.
 
 When Debian boots up, choose the 'Install' option (graphical install is fine but unnecessary).
 
