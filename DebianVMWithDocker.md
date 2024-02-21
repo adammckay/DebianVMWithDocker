@@ -6,29 +6,17 @@ The purpose of this guide is to create a working Debian 12 Virtual Machine that 
 
 ## Required Software
 
-You will need several different things to follow this guide.
+You will need several different software downloads to follow this guide.
 
-VirtualBox is the application to host Virtual Machines.
+| Name/URL                                                                                                                        | Description                                                                                                                          |
+|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| [Virtualbox](https://www.virtualbox.org)                                                                                        | VirtualBox is the application to host Virtual Machines.                                                                              |
+| [Debian 12](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso)                          | Debian 12 is the Linux distribution that we will use as our virtual operating system.                                                |
+| [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-US&gl=US)                                               | If you are running a newer version of Windows, try to install Windows Terminal.  It will be easier to copy / paste commands into it. |
+| [Windows SSH Client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) | If you are running Windows, you will need Microsoft's SSH Client.                                                                    |
+| [Android Juice SSH Client](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en_US&gl=US&pli=1)             | Optional Android SSH Client.                                                                                                         |
+| [iPhone Termius SSH Client](https://apps.apple.com/us/app/termius-terminal-ssh-client/id549039908)                              | Optional iPhone SSH Client.                                                                                                          |
 
-[Virtualbox](https://www.virtualbox.org)
-
-Debian 12 is the Linux distribution that we will use as our virtual operating system.
-
-[Debian 12](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso)
-
-If you are running a newer version of Windows, try to install Windows Terminal.  It will be easier to copy / paste commands into it.
-
-[Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-US&gl=US)
-
-If you are running Windows, you will need Microsoft's SSH Client.
-
-[Windows SSH Client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui)
-
-Optionally, you can get an SSH Client for your phone as well.
-
-[Android Juice SSH Client](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en_US&gl=US&pli=1)
-
-[iPhone Termius SSH Client](https://apps.apple.com/us/app/termius-terminal-ssh-client/id549039908)
 
 ## Debian VM
 
@@ -36,21 +24,18 @@ Create a new VM in VirtualBox.  It is very important to uncheck the unattended i
 
 Go to VirtualBox and click 'New' to create a new VM.  On the wizard screen, choose:
 
-- Name: Debian
-
-- Folder: (default is fine)
-
-- ISO Image: Choose your Debian 12 ISO file that you downloaded earlier.
-
-- Type: Linux
-
-- Version: Debian 12 Bookworm (64-bit)
-
-- Skip Unattended Installation
+| Field                        | Value                                                       |
+|------------------------------|-------------------------------------------------------------|
+| Name                         | Debian                                                      |
+| Folder                       | The default is fine.                                        |
+| ISO Image                    | Choose your Debian 12 ISO file that you downloaded earlier. |
+| Type                         | Linux                                                       |
+| Version                      | Debian 12 Bookworm (64-bit)                                 |
+| Skip Unattended Installation | Checked                                                     |
 
 It is very important to uncheck the unattended install option.  If you don't, you will get many features that will overcomplicate your setup.
 
-All other defaults are fine at this point.  **You may find the 20GB drive space limiting so set that to something you can handle.** You can start your VM.
+All other defaults are fine at this point.  **You may find the 20GB drive space limiting so set tht to something you can handle.** You can start your VM.
 
 When Debian boots up, choose the 'Install' option (graphical install is fine but unnecessary).
 
@@ -58,19 +43,19 @@ Going with the defaults of Debian Setup are fine.  The rest of this guide will a
 
 Throughout setup use these values:
 
-- Hostname: debian
-
-- Domain: WORKGROUP
-
-- Username: vbox
+| Field    | Value     |
+|----------|-----------|
+| Hostname | debian    |
+| Domain   | WORKGROUP |
+| Username | vbox      |
 
 During package management selection:
 
-- Uncheck Debian Desktop
-
-- Uncheck Gnome
-
-- Check SSH Server
+| Field          | Value     |
+|----------------|-----------|
+| Debian Desktop | Unchecked |
+| Gnome          | Unchecked |
+| SSH Server     | Checked   |
 
 After installation, your VM will shut down.  You can start it back up to make sure that it works.  Log in as vbox.
 
@@ -96,13 +81,16 @@ su
 apt-get install sudo
 # Add the vbox user to the group that can run sudo.
 /sbin/adduser vbox sudo
+```
+```bash
 # Exit the SU session.
 exit
+```
+```bash
 # Exit the vbox session.
 exit 
 ```
-
-From this point on, you can run commands starting with 'sudo' which will tell Debian to run the command as root.  Debian will prompt for credentials periodically when sudo is used.
+From this point on, you can run commands starting with 'sudo' which will tell Debian to run the command as root.  Debian will prompt for root credentials periodically when sudo is used.
 
 If you try to run a command and you forgot to use sudo, you can do:
 
@@ -184,15 +172,11 @@ Highlight your VM in VirtualBox and go to Machine→Create Shortcut on Desktop.
 
 Right click that new shortcut and go to Properties. You should see a command line in there that looks like this*:
 
-```
-"C:\Program Files\Oracle\VirtualBox\VirtualBoxVM.exe" --comment "Debian12" --startvm "{b9904e9e-0333-4464-98e2-63427c0a445c}"
-```
+`"C:\Program Files\Oracle\VirtualBox\VirtualBoxVM.exe" --comment "Debian12" --startvm "{b9904e9e-0333-4464-98e2-63427c0a445c}"`
 
 Change the command to look like this*:
 
-```
-"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm "{b9904e9e-0333-4464-98e2-63427c0a445c}" --type headless
-```
+`"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm "{b9904e9e-0333-4464-98e2-63427c0a445c}" --type headless`
 
 *The jumbled GUID string {b9904e9e-0333-4464-98e2-63427c0a445c} is unique to your computer. 
 
@@ -888,58 +872,45 @@ Heimdall's interface will be empty.  There will be a link to add an application 
 Here are the Applications you should add:
 
 Portainer
-
-- Application Name: Portainer
-
-- Application Type: Portainer
-
-- Colour: #161b1f
-
-- URL: [http://portainer.debian](http://portainer.debian)
-
-- Config: Enable
-
-- User/Pass: (Supply your Portainer Login / Pass)
-
-- Skip TLS: Enable
+| Field            | Value                                              |
+|------------------|----------------------------------------------------|
+| Application Name | Portainer                                          |
+| Application Type | Portainer                                          |
+| Colour           | #161b1f                                            |
+| URL              | [http://portainer.debian](http://portainer.debian) |
+| Config           | Enable                                             |
+| User/Pass        | Supply appropriate user/pass.                      |
+| Skip TLS         | Enable                                             |
 
 Nginx Proxy Manager
-
-- Application Name: Nginx Proxy Manager
-
-- Application Type: Nginx Proxy Manager
-
-- Colour: #161b1f
-
-- URL: [http://nginx.debian](http://nginx.debian)
-
-- Config: Enable
-
-- User/Pass: (Supply your Nginx Proxy Manager User / Pass)
+| Field            | Value                                      |
+|------------------|--------------------------------------------|
+| Application Name | Nginx Proxy Manager                        |
+| Application Type | Nginx Proxy Manager                        |
+| Colour           | #161b1f                                    |
+| URL              | [http://nginx.debian](http://nginx.debian) |
+| Config           | Enable                                     |
+| User/Pass        | (Supply your Portainer Login / Pass)       |
 
 MeTube
-
-- Application Name: MeTube
-
-- Application Type: youtube-dl
-
-- Colour: #161b1f
-
-- URL: [http://metube.debian](http://metube.debian)
+| Field            | Value                                        |
+|------------------|----------------------------------------------|
+| Application Name | MeTube                                       |
+| Application Type | youtube-dl                                   |
+| Colour           | #161b1f                                      |
+| URL              | [http://metube.debian](http://metube.debian) |
 
 PiHole
+| Field            | Value                                                    |
+|------------------|----------------------------------------------------------|
+| Application Name | PiHole                                                   |
+| Application Type | Pi-hole                                                  |
+| Colour           | #161b1f                                                  |
+| URL              | [http://pihole.debian/admin](http://pihole.debian/admin) |
+| Config           | Enable                                                   |
+| API Key          | *See Below                                               |
 
-- Application Name: Pi-Hole
-
-- Application Type: Pi-hole
-
-- Colour: #161b1f
-
-- URL: [http://pihole.debian](http://pihole.debian)
-
-- Config: Enable
-
-- API Key: (Go to [http://pihole.debian](http://pihole.debian), Click Settings→API Tab→Click 'Show API Token'→Click 'Yes, show API token'→Copy the long string that is the 'Raw API Token'→Come back to Heimdall and paste that token into the 'API Key' field.
+*Go to [http://pihole.debian/admin](http://pihole.debian/admin), Click Settings→API Tab→Click 'Show API Token'→Click 'Yes, show API token'→Copy the long string that is the 'Raw API Token'→Come back to Heimdall and paste that token into the 'API Key' field.
 
 ## Basic Docker Workflow
 
@@ -1025,10 +996,9 @@ There are tons of great sites out there to get more in-depth information or to g
 
 In no particular order, they are:
 
-[LinuxServer.io](https://fleet.linuxserver.io) - They have produced a fleet of top-notch Docker Images.
-
-[Docker Hub](https://hub.docker.com) - Probably the largest collection of Images.
-
-[r/SelfHosted](https://www.reddit.com/r/selfhosted) - A great Sub-Reddit with tons of Self Hosting information.
-
-[Awesome Self Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - A massive list of Self Hosted applications.
+| Name/URL                                                                        | Description                                               |
+|---------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [LinuxServer.io](https://fleet.linuxserver.io)                                  | They have produced a fleet of top-notch Docker Images.    |
+| [Docker Hub](https://hub.docker.com)                                            | Probably the largest collection of Images.                |
+| [r/SelfHosted](https://www.reddit.com/r/selfhosted)                             | A great Sub-Reddit with tons of Self Hosting information. |
+| [Awesome Self Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) | A massive list of Self Hosted applications.               |
