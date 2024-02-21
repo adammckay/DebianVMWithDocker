@@ -331,14 +331,17 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add the repository to Apt sources. (this is a large command)
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
+```
+Now you will update your repositories:
+```bash
 # Update your repos.
 sudo apt-get update
-
+```
+Finally, you will install Docker:
+```bash
 # Install Docker
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-
 ## Portainer-CE
 
 Think of Portainer as a GUI for Docker. Portainer-CE (Community Edition) is the free version.
