@@ -961,9 +961,56 @@ The basic workflow of adding new things is:
 
 7. Use Heimdall to add your new Container to the Dashboard.
 
-## Jellyfin
+## Glances
 
-(Forthcoming...)
+Glances will show you all of the activity of your Debian VM.
+
+Here is the YAML:
+```yaml
+version: "3"
+
+services:
+  glances:
+    container_name: glances
+    image: nicolargo/glances:latest
+    pid: host
+    environment:
+      - GLANCES_OPT=-w
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 61208-61209:61208-61209
+    restart: unless-stopped
+    #port 61208 is the web port
+```
+
+## Jellyfin
+Jellyfin is an excellent Media server.  There are readily available Jellyfin Client apps for most SmartTV platforms.
+
+You will need to create 3 folders in your /home folder: '.jellyfin' (for configuration), 'Movies', and 'Television'.
+
+```yaml
+version: "3"
+
+volumes:
+  vol_jellyfin:
+
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: linuxserver/jellyfin:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /home/vbox/.jellfyin:/config
+      - /home/vbox/Movies:/data/movies
+      - /home/vbox/Television:/data/tvshows
+    ports:
+      - 8096:8096
+    restart: unless-stopped
+```
 
 ## Dynamic DNS
 
@@ -973,9 +1020,6 @@ The basic workflow of adding new things is:
 
 (Forthcoming...)
 
-## Glances
-
-(Forthcoming...)
 
 ## Docker Resources
 
