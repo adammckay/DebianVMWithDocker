@@ -135,7 +135,7 @@ sudo shutdown
 
 On your host computer, open VirtualBox Manager.
 
-Go to Network►Adapter 1 Tab
+Go to Network→Adapter 1 Tab
 
 - Set 'Attached to:' to 'Bridged Apapter'.
 
@@ -180,7 +180,7 @@ sudo shutdown
 
 On your host computer, open the VirtualBox Manager.
 
-Highlight your VM in VirtualBox and go to Machine►Create Shortcut on Desktop.
+Highlight your VM in VirtualBox and go to Machine→Create Shortcut on Desktop.
 
 Right click that new shortcut and go to Properties. You should see a command line in there that looks like this*:
 
@@ -297,7 +297,7 @@ On your Host computer, you should now be able to open Windows Explorer (file exp
 
 It will ask for your vbox user/pass. 
 
-You will see a 'vbox' folder. Right click it►Map network drive. 
+You will see a 'vbox' folder. Right click it→Map network drive. 
 
 Pick a letter (D for Debian? S for Samba? Whatever!). Click Finish. Now you have a drive in windows mapped to the home folder of your Debian VM.
 
@@ -409,7 +409,7 @@ This is a great time to back up your VM. There are two ways to do backups and yo
    
    The most important file in there is the .vdi file (Virtual Disk Image) but back up that whole folder to an external drive if you have one.
 
-2. In Virtualbox, highlight your Debian VM, go to Machine►Tools►Snapshots.
+2. In Virtualbox, highlight your Debian VM, go to Machine→Tools→Snapshots.
    
    Take a new Snapshot called Debian-CleanInstall. Now you can revert back to this any time you need to undo a huge mistake.
 
@@ -442,7 +442,7 @@ On the left navigation, choose Custom Templates (a sub-menu of App Templates).  
 
 Set the following values:
 
-- Title: metube (◄case sensitive - must be lowercase!)
+- Title: metube (←case sensitive - must be lowercase!)
 
 - Description: MeTube
 
@@ -565,7 +565,7 @@ On the left navigation, choose Custom Templates (a sub-menu of App Templates). C
 
 Set the following values:
 
-- Title: pihole (◄case sensitive - must be lowercase!)
+- Title: pihole (←case sensitive - must be lowercase!)
 
 - Description: PiHole
 
@@ -675,7 +675,7 @@ On the left navigation, choose Custom Templates (a sub-menu of App Templates). C
 
 Set the following values:
 
-- Title: nginx(◄case sensitive - must be lowercase!)
+- Title: nginx(←case sensitive - must be lowercase!)
 
 - Description: Nginx Proxy Manager
 
@@ -832,7 +832,7 @@ On the left navigation, choose Custom Templates (a sub-menu of App Templates). C
 
 Set the following values:
 
-- Title: heimdall(◄case sensitive - must be lowercase!)
+- Title: heimdall(←case sensitive - must be lowercase!)
 
 - Description: Heimdall
 
@@ -939,7 +939,7 @@ PiHole
 
 - Config: Enable
 
-- API Key: (Go to [http://pihole.debian](http://pihole.debian), Click Settings►API Tab►Click 'Show API Token'►Click 'Yes, show API token'►Copy the long string that is the 'Raw API Token'►Come back to Heimdall and paste that token into the 'API Key' field.
+- API Key: (Go to [http://pihole.debian](http://pihole.debian), Click Settings→API Tab→Click 'Show API Token'→Click 'Yes, show API token'→Copy the long string that is the 'Raw API Token'→Come back to Heimdall and paste that token into the 'API Key' field.
 
 ## Basic Docker Workflow
 
@@ -1020,9 +1020,7 @@ services:
 
 (Forthcoming...)
 
-
 ## Docker Resources
-
 There are tons of great sites out there to get more in-depth information or to go find Docker Images.  This guide was largely based on many of these resources.
 
 In no particular order, they are:
@@ -1034,4 +1032,3 @@ In no particular order, they are:
 [r/SelfHosted](https://www.reddit.com/r/selfhosted) - A great Sub-Reddit with tons of Self Hosting information.
 
 [Awesome Self Hosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - A massive list of Self Hosted applications.
-
