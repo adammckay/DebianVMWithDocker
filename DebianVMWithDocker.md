@@ -17,7 +17,6 @@ You will need several different software downloads to follow this guide.
 | [Android Juice SSH Client](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en_US&gl=US&pli=1)             | Optional Android SSH Client.                                                                                                         |
 | [iPhone Termius SSH Client](https://apps.apple.com/us/app/termius-terminal-ssh-client/id549039908)                              | Optional iPhone SSH Client.                                                                                                          |
 
-
 ## Debian VM
 
 Create a new VM in VirtualBox.  It is very important to uncheck the unattended install option.  If you don't, you will get many features that will overcomplicate your setup. 
