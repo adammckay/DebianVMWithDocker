@@ -350,12 +350,18 @@ From Windows Terminal, SSH to your Debian VM to log in.
 ```powershell
 ssh vbox@debian
 ```
+You need a folder for Portainer to hold configuration data.  You can also run this command to do so:
+
+```bash
+# Create a directory for Portainer's configuration data.
+mkdir .portainer
+```
 
 If you look at the Portainer documentation, Portainer can be set up in a one-line command:
 
 ```bash
 # Download the Portainer Image and run the Portainer Container. (this is a large command)
-sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /home/vbox/.portainer:/data portainer/portainer-ce:latest
 ```
 
 You can now see what containers are active in Docker.
