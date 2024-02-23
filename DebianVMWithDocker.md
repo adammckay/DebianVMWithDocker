@@ -956,6 +956,8 @@ services:
     restart: unless-stopped
     #port 61208 is the web port
 ```
+Don't forget to set up in Nginx Proxy Manager and Heimdall:
+[http://debian:61208](http://debian:61208) → [http://glances.debian](http://glances.debian)
 
 ## Jellyfin
 Jellyfin is an excellent Media server.  There are readily available Jellyfin Client apps for most SmartTV platforms.
@@ -984,6 +986,8 @@ services:
       - 8096:8096
     restart: unless-stopped
 ```
+Don't forget to set up in Nginx Proxy Manager and Heimdall:
+[http://debian:8096](http://debian:8096) → [http://jellyfin.debian](http://jellyfin.debian)
 
 ## Dynamic DNS
 
