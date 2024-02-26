@@ -464,7 +464,7 @@ Now highlight the Template you just made and click 'Deploy the Stack'.
 
 It will run slow because it's downloading the image. Eventually it will give you a message of success or failure. If successful, it will take you to the stacks list to show you that it's running.
 
-Keep in mind here that 'Stacks' is an invention of Portainer. It is not really a Docker concept. If you want to see the Docker containers running, you can click 'Containers' in Portainer's left menu.
+If you want to see the Docker containers running, you can click 'Containers' in Portainer's left menu.
 
 Notice that port you used in the stack template? 8081. In your Windows browser go to:
 
