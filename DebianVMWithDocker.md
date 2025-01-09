@@ -11,7 +11,7 @@ You will need several different software downloads to follow this guide.
 | Name/URL                                                                                                                        | Description                                                                                                                          |
 |---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | [Virtualbox](https://www.virtualbox.org)                                                                                        | VirtualBox is the application to host Virtual Machines.                                                                              |
-| [Debian 12](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso)                          | Debian 12 is the Linux distribution that we will use as our virtual operating system.                                                |
+| [Debian 12](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.8.0-amd64-netinst.iso)                          | Debian 12 is the Linux distribution that we will use as our virtual operating system.                                                |
 | [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-US&gl=US)                                               | If you are running a newer version of Windows, try to install Windows Terminal.  It will be easier to copy / paste commands into it. |
 | [Windows SSH Client](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) | If you are running Windows, you will need Microsoft's SSH Client.                                                                    |
 | [Android Juice SSH Client](https://play.google.com/store/apps/details?id=com.sonelli.juicessh&hl=en_US&gl=US&pli=1)             | Optional Android SSH Client.                                                                                                         |
@@ -19,7 +19,7 @@ You will need several different software downloads to follow this guide.
 
 ## Debian VM
 
-Create a new VM in VirtualBox.  It is very important to uncheck the unattended install option.  If you don't, you will get many features that will overcomplicate your setup. 
+Create a new VM in VirtualBox.
 
 Go to VirtualBox and click 'New' to create a new VM.  On the wizard screen, choose:
 
@@ -32,7 +32,7 @@ Go to VirtualBox and click 'New' to create a new VM.  On the wizard screen, choo
 | Version                      | Debian 12 Bookworm (64-bit)                                 |
 | Skip Unattended Installation | Checked                                                     |
 
-It is very important to uncheck the unattended install option.  If you don't, you will get many features that will overcomplicate your setup.
+It is very important to skip the unattended install option.  If you don't, you will get many features that will overcomplicate your setup.
 
 All other defaults are fine at this point.  **You may find the 20GB drive space limiting so set tht to something you can handle.** You can start your VM.
 
